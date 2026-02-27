@@ -42,8 +42,5 @@ to that filaments particular Z_offset.
 
 These macros work off of a BASE setting in your printer.cfg. In my case #*# [bltouch]
                                                                         #*# z_offset = 123
-
-My Z offset in the printer config is what I use for ASA, which is why in my saved_variables
-ASA is set to 0.00.
 																		
 
