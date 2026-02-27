@@ -1,0 +1,15 @@
+  ; 💾 Automatically save current baby-step Z offset for this filament
+    SAVE_Z_ADJUST
+
+    ; 🧠 Show confirmation in Mainsail console & LCD
+    {% set ftype = printer["gcode_macro FILAMENT_Z_ADJUST"].filament_type|upper %}
+    {% set saved_offset = printer.save_variables.variables.get(ftype ~ "_Z_OFFSET", 0.0)|float %}
+    {% if saved_offset|round(3) != 0.0 %}
+      {action_respond_info("✅ Z offset saved for %s: %.3f mm" % (ftype, saved_offset))}
+      M117 {"Z offset saved for %s: %.3f mm" % (ftype, saved_offset)}
+    {% else %}
+      {action_respond_info("ℹ️ No Z offset adjustment to save for %s" % ftype)}
+      M117 Z offset unchanged for {ftype}
+    {% endif %}
+
+    M117 Print complete

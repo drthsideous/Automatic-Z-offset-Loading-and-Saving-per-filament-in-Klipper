@@ -1,0 +1,13 @@
+     {% set FILAMENT = params.FILAMENT|default("ASA")|string %}
+  #  Place this line at the top of START PRINT under your bed temp and extruder temp parameters
+  
+  
+  # Set filament variable + apply Z offset
+    SET_GCODE_VARIABLE MACRO=FILAMENT_Z_ADJUST VARIABLE=filament_type VALUE="'{FILAMENT}'" 
+    FILAMENT_Z_ADJUST
+  # Place this line under your mesh calibration
+  
+  # These two lines below can go at the very end of your START PRINT
+	M117 Printing with {FILAMENT} settings
+
+    PROBE_OFFSET_GUARD

@@ -1,0 +1,6 @@
+START_PRINT BED_TEMP=[first_layer_bed_temperature] EXTRUDER_TEMP=[first_layer_temperature[initial_extruder]] FILAMENT=[filament_type]
+Replace your Machine start G-code with this in Orca Slicer, copy it exactly.
+Klipper is very finicky with the wording.
+
+END_PRINT
+Replace you Machine end G-code with this in Orca Slicer.

@@ -1,0 +1,49 @@
+I have all of my macros in a separate macros folder in klipper to keep things more
+organized. And use [INCLUDE macros/MACRO_NAME.cfg] to run my various macros.
+For example:
+#All Macros List here
+[include macros/FILAMENT_Z_ADJUST.cfg]
+[include macros/END_PRINT.cfg]
+[include macros/UNLOAD_FILAMENT.cfg]
+[include macros/LOAD_FILAMENT.cfg]
+[include macros/START_PRINT.cfg]
+[include macros/SAVE_Z_ADJUST.cfg]
+[include macros/REAPPLY_FILAMENT_OFFSET.cfg]
+[include macros/PROBE_OFFSET_GUARD.cfg]
+
+This works for me, but you should be able to add my macros to your printer.cfg and run 
+them the same. Although I have not tested this. I reccomend setting up a different macros folder
+though, /config/macros. As this will keep things tidy, and allow you to trouble shoot thing easier
+if problems arise.
+
+The macros you need to add are:
+[SAVE_Z_ADJUST]
+[REAPPLY_FILAMENT_OFFSET]
+[PROBE_OFFSET_GUARD]
+[FILAMENT_Z_ADJUST]
+
+"saved_variables.cfg" needs to be added to your main config path /config
+The same path that your printer.cfg is in. NOT in a macros folder /config/macros.
+This is where your filament offsets will be stored.
+You can edit this file to add any filament types you use, just make sure it is written the same way
+that Orca writes it. I just included the most common types I use.
+
+There are several lines of code that need to be added in existing .cfg and macros.
+
+There are two files with lines that need to be added to your START_PRINT and END_PRINT macros.
+They are "Add to START_PRINT MACRO.txt" and "Add to END PRINT MACRO.txt"
+If you do not have START_PRINT and END_PRINT macros, this whole thing will not work for you.
+I've also included my START_PRINT and END_PRINT macros so you can see how I incorporated these
+lines, and also for others to use if they do not have them. No garauntee they will work with your
+set up though.
+
+"Add to printer cfg.txt" has lines that need to be added to your printer.cfg
+
+"Orca Slicer Lines.txt" has lines that need to replace your Start and End print gcode in Orca.
+
+I'll be honest, if you have any issues, I probably can't solve them. But I was able to 
+troubleshoot and create all of this with chatgpt by feeding in and asking it to write these
+macros with my existing printer.cfg and macros. And if I ran into an error, I fed the error
+chatgpt and it would tell me how and what to change. So if I can figure it out, I'm sure
+others can. Cause again, I have very little idea what I'm doing.
+
